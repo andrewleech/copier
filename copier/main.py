@@ -590,7 +590,10 @@ class Worker:
             print("")  # padding space
         src_abspath = self.template_copy_root
         try:
-            print(f"Copying from template version {self.template.version}", file=sys.stderr)
+            print(
+                f"Copying from template version {self.template.version}",
+                file=sys.stderr,
+            )
             self._render_folder(src_abspath)
             if not self.quiet:
                 # TODO Unify printing tools

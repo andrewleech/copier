@@ -45,4 +45,4 @@ def test_output_quiet(capsys, tmp_path):
     render(tmp_path, quiet=True)
     out, err = capsys.readouterr()
     assert out == ""
-    assert err == ""
+    assert err == "Copying from template version None\n"
