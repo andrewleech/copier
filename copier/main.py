@@ -590,6 +590,7 @@ class Worker:
             print("")  # padding space
         src_abspath = self.template_copy_root
         try:
+            print(f"Copying from template version {self.template.version}", file=sys.stderr)
             self._render_folder(src_abspath)
             if not self.quiet:
                 # TODO Unify printing tools
@@ -643,6 +644,7 @@ class Worker:
                 f"Your are downgrading from {self.subproject.template.version} to {self.template.version}. "
                 "Downgrades are not supported."
             )
+        print(f"Updating to template version {self.template.version}", file=sys.stderr)
         # Copy old template into a temporary destination
         with TemporaryDirectory(prefix=f"{__name__}.update_diff.") as dst_temp:
             old_worker = replace(
